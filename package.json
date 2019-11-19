@@ -1,0 +1,31 @@
+{
+  "name": "koa-ts-yu",
+  "version": "1.0.0",
+  "description": "This is my typescript koa2 project example.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node index.js",
+    "server": "nodemon -e ts,tsx --exec 'ts-node' ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yubingcen/koa-ts-yu.git"
+  },
+  "author": "BingoC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yubingcen/koa-ts-yu/issues"
+  },
+  "homepage": "https://github.com/yubingcen/koa-ts-yu#readme",
+  "devDependencies": {
+    "@types/koa": "^2.0.52",
+    "@types/koa-router": "^7.0.42",
+    "@types/node": "^12.12.9",
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  }
+}
