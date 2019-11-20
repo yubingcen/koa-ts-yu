@@ -21,9 +21,11 @@
   "devDependencies": {
     "@types/koa": "^2.0.52",
     "@types/koa-router": "^7.0.42",
+    "@types/mongoose": "^5.5.32",
     "@types/node": "^12.12.9",
     "koa": "^2.11.0",
     "koa-router": "^7.4.0",
+    "mongoose": "^5.7.12",
     "nodemon": "^1.19.4",
     "ts-node": "^8.5.2",
     "typescript": "^3.7.2"
