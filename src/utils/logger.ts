@@ -31,7 +31,7 @@ const logger = (type: LogType, msg: any, url?: string) => {
 	let day = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
 	let time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
 
-	let buf: Buffer = new Buffer(`
+	let buf: Buffer = Buffer.from(`
     url: ${url}
     time: ${day} ${time}
     type: ${LogType[type]}
@@ -39,8 +39,8 @@ const logger = (type: LogType, msg: any, url?: string) => {
     ------------------------------
 	`)
 
-	let path = `${__dirname}'/../../logs/${day}.log`
-	fs.readFile(path, (err, data:Buffer) => {
+	let path = `${__dirname}/../../logs/${day}.log`
+	fs.readFile(path, (err, data: Buffer) => {
 		if (!data) {
 			fs.writeFileSync(path, buf)
 		} else {
