@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/yubingcen/koa-ts-yu#readme",
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/koa": "^2.0.52",
     "@types/koa-router": "^7.0.42",
     "@types/mongoose": "^5.5.32",
     "@types/node": "^12.12.9",
+    "bcrypt": "^3.0.7",
     "koa": "^2.11.0",
     "koa-router": "^7.4.0",
     "mongoose": "^5.7.12",
