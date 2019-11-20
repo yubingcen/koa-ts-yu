@@ -1,0 +1,31 @@
+{
+	"rules": {
+		"member-access": [true, "no-public"],	// 是否显式声明访问修饰符（private、public、protected）
+		"space-before-function-paren": ["error", "never"],		// 允许函数名与括号之间有空格
+		"curly": [true, "ignore-same-line"],	// 允许单行语句
+		"no-console": false,		// 允许 console
+		"only-arrow-functions": [false, "allow-deciarations", "allow-named-functions"],
+		"quotemark": [true, "single"], // 单括号
+    "no-var-keyword": true, // 不允许使用var
+    // 维护性功能
+		"indent": [true, "spaces", 2],	// tab缩进为 2个空格
+    "linebreak-style": ["off", "windows"], // 换行符格式 CR/LF可以通用使用在windows和osx
+    "max-classes-per-file": [true,1], // 每个文件中可定义类的个数
+    "max-file-line-count": [true, 1000], // 定义每个文件代码行数
+    "max-line-length": [false, 120], // 定义每行代码数
+    "no-default-export": true, // 禁止使用export default关键字，因为当export对象名称发生变化时，需要修改import中的对象名。https://github.com/palantir/tslint/issues/1182#issue-151780453
+    "no-duplicate-imports": true, // 禁止在一个文件内，多次引用同一module
+    // 格式
+    "class-name": true, // 类名以大驼峰格式命名
+    "encoding": true, // 定义编码格式默认utf-8
+    "import-spacing": true, // import关键字后加空格
+    "interface-name": [true,"always-prefix"], // interface必须以I开头
+    "new-parens": true, // 调用构造函数时需要用括号
+    "no-consecutive-blank-lines": [true, 2], // 不允许有空行
+    "no-trailing-whitespace": [ // 不允许空格结尾
+      true,
+      "ignore-comments",
+      "ignore-jsdoc"
+    ]
+	}
+}
