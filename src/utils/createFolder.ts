@@ -13,8 +13,6 @@ const create = (relPath: string) => { // 根据根目录为路径的相对路径
         ERROR = err
         resError('文件夹创建失败', err)
         throw new Error(err)
-      } else {
-        return true
       }
     })
     } catch (err) {
