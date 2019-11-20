@@ -1,5 +1,6 @@
 import * as fs from 'fs'
 import Log from '../models/logs'
+import createFolder from './createFolder'
 
 enum LogType {
 	error,
@@ -39,14 +40,17 @@ const logger = (type: LogType, msg: any, url?: string) => {
     ------------------------------
 	`)
 
-	let path = `${__dirname}/../../logs/${day}.log`
-	fs.readFile(path, (err, data: Buffer) => {
-		if (!data) {
-			fs.writeFileSync(path, buf)
-		} else {
-			fs.appendFileSync(path, buf)
-		}
-	})
+  // 判断是否有当前文件夹
+  if (createFolder('/logs')) {
+    let path = `${__dirname}/../../logs/${day}.log`
+    fs.readFile(path, (err, data: Buffer) => {
+      if (!data) {
+        fs.writeFileSync(path, buf)
+      } else {
+        fs.appendFileSync(path, buf)
+      }
+    })
+  }
 }
 
 export { LogType, logger }
