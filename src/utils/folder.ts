@@ -2,8 +2,14 @@ import fs from 'fs'
 import path from 'path'
 import { resError } from './response'
 
-const create = (relPath: string) => { // 根据根目录为路径的相对路径
-  const filePath = path.resolve(__dirname, '../..') + relPath
+const rootDirName = path.resolve(__dirname, '../..')
+
+const getPath = (relPath: string) => {
+  return rootDirName + relPath
+}
+
+const folder = (relPath: string) => { // 根据根目录为路径的相对路径
+  const filePath = rootDirName + relPath
 
   if (!fs.existsSync(filePath)) {  //判断文件夹是否存在，如果不存在就新建一个
     let ERROR = null
@@ -28,4 +34,4 @@ const create = (relPath: string) => { // 根据根目录为路径的相对路径
   }
 }
 
-export default create
+export { folder, getPath }
