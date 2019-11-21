@@ -63,7 +63,7 @@ const postFile = async (ctx: any, next: any) => {
 
 const getFile = async (ctx: any, next: any) => {
   const uuid = ctx.params.uuid
-  const file_f = await File_col.findOne({
+  const file_f: any = await File_col.findOne({
     uuid: uuid
   })
   if (file_f) {

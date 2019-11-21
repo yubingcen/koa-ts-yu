@@ -1,5 +1,6 @@
 node_modules
 .idea
+dist
 logs
 src/**/*.js
 src/**/*.js.map
