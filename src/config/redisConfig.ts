@@ -29,12 +29,16 @@ const options: any = {
 const client = redis.createClient(options)
 // const client = promisifyAll(redis.createClient(options))
 
-const setValue = (key: string, value: any) => {
+const setValue = (key: string, value: any, time?: number) => {
   if (typeof value === 'undefined' || value === null || value === '') {
     return
   }
   if (typeof value === 'string') {
-    client.set(key, value)
+    if (time) {
+      client.set(key, value, 'EX', time)
+    } else {
+      client.set(key, value)
+    }
   } else if (typeof value === 'object') {
     Object.keys(value).forEach(item => {
       client.hset(key, item, value[item], redis.print)
