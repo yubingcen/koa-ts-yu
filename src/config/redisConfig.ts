@@ -1,9 +1,10 @@
 import redis from 'redis'
+import { Redis } from './configs'
 // import { promisifyAll } from 'bluebird'
 const options: any = {
-  host: '192.168.0.107',
-  port: 15001,
-  password: '123456',
+  host: Redis.host,
+  port: Redis.port,
+  password: Redis.password,
   detect_buffers: true,
   retry_strategy: (options: any) => {
     if (options.error && options.error.code === 'ECONNREFUSED') {
