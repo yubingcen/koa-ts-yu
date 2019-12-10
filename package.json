@@ -46,6 +46,7 @@
     "mongoose": "^5.7.12",
     "nodemon": "^1.19.4",
     "redis": "^2.8.0",
+    "svg-captcha": "^1.4.0",
     "ts-node": "^8.5.2",
     "typescript": "^3.7.2",
     "uuid": "^3.3.3"

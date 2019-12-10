@@ -17,7 +17,7 @@ app.use(koaBody({
   }
 }))
 app.use(ErrorHandle)
-app.use(jwt({secret: Secret}).unless({ path: [/^\/public/, /\/login/]}))
+app.use(jwt({secret: Secret}).unless({ path: [/^\/public\/\S*/, /\/login/]}))
 app.use(helmet())
 app.use(koaCors())
 app.use(route())
