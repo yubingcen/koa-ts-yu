@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from '../config/DBHelpler'
 
 const Schema = mongoose.Schema
 const PasswordSchema = new Schema({

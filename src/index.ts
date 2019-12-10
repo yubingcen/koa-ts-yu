@@ -6,7 +6,6 @@ import koaCors from "koa-cors" // 解决跨域
 import jwt from 'koa-jwt'
 import CONFIG from './config/configs'
 import ErrorHandle from './common/errorHandle'
-import mongoose from 'mongoose'
 const app = new Koa()
 
 app.use(koaBody({
@@ -21,14 +20,6 @@ app.use(jwt({secret: CONFIG.SECRET}).unless({ path: [/^\/public\/\S*/, /\/login/
 app.use(helmet())
 app.use(koaCors())
 app.use(route())
-
-mongoose.connect(CONFIG.MongoDB, { useNewUrlParser: true,  useUnifiedTopology: true }, (err) => {
-  if (err) {
-    console.error('数据库连接失败')
-  } else {
-    console.log('数据库连接成功')
-  }
-})
 
 app.listen(CONFIG.PORT)
 console.log(`Server running on port ${CONFIG.PORT}`)
