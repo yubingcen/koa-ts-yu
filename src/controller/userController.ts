@@ -88,14 +88,51 @@ class UserController {
     let sid: string = body.sid
     let code: string = body.code
     if(await checkCode(sid, code)) {
-      // TODO 还未完成登录
       // 验证账号密码
-      let token = jwt.sign({username: body.username}, Secret, {
-        expiresIn: '1d'
-      })
+      // 判断类型，防止注入
+      if (typeof (body.username) !== 'string' || typeof (body.password) !== 'string') {
+        ctx.status = 500
+        ctx.body = {
+          code: 500,
+          msg: '类型错误!'
+        }
+        return
+      }
+
+      // 获取用户的 userId
+      const user: any = await User.findOne({ username: body.username })
+      if (!user) {
+        ctx.body = {
+          code: 500,
+          msg: '用户不存在!'
+        }
+        return
+      }
+
+      const userId = user.userId
+
+      // 获取数据库中的 hash
+      const pass: any = await Password.findOne({ userId }, { hash: 1 })
+
+      const match = await validate(body.password, pass.hash)
+      if (match) {
+        let token = jwt.sign({username: body.username}, Secret, { expiresIn: '1d' })
+        ctx.body = {
+          code: 200,
+          msg: '登录成功',
+          data: Object.assign({
+            username: user.username,
+            nickname: user.nickname,
+            userId: user.userId,
+            cover: user.cover || ''
+          }, {token: token})
+        }
+        return
+      }
+
       ctx.body = {
-        code: 200,
-        data: token
+        code: 500,
+        msg: '账号或密码有误!'
       }
     } else {
       ctx.body = {
