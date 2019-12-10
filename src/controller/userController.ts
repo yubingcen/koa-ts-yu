@@ -2,9 +2,8 @@ import jwt from 'jsonwebtoken'
 import { Context } from 'koa'
 import Dayjs from 'dayjs'
 import uuid from 'uuid/v4'
-import { Secret } from '../config/configs'
+import CONFIG from '../config/configs'
 import { encrypt, validate } from '../utils/password'
-import { SaltTimes } from '../config/configs'
 import checkCode from '../utils/checkCode'
 import User from '../models/user'
 import Password from '../models/password'
@@ -52,7 +51,7 @@ class UserController {
         })
         if (newUser) {
           // 加密
-          const hash = await encrypt(body.password, SaltTimes)
+          const hash = await encrypt(body.password, CONFIG.SaltTimes)
           const result = await Password.create({ userId: userId, hash })
 
           if (result) {
@@ -116,7 +115,7 @@ class UserController {
 
       const match = await validate(body.password, pass.hash)
       if (match) {
-        let token = jwt.sign({username: body.username}, Secret, { expiresIn: '1d' })
+        let token = jwt.sign({username: body.username}, CONFIG.SECRET, { expiresIn: '1d' })
         ctx.body = {
           code: 200,
           msg: '登录成功',

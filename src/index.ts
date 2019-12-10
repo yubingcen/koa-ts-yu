@@ -4,7 +4,7 @@ import helmet from 'koa-helmet' //安全头部
 import koaBody from 'koa-body'
 import koaCors from "koa-cors" // 解决跨域
 import jwt from 'koa-jwt'
-import { Port, Mongodb, Secret } from './config/configs'
+import CONFIG from './config/configs'
 import ErrorHandle from './common/errorHandle'
 import mongoose from 'mongoose'
 const app = new Koa()
@@ -17,12 +17,12 @@ app.use(koaBody({
   }
 }))
 app.use(ErrorHandle)
-app.use(jwt({secret: Secret}).unless({ path: [/^\/public\/\S*/, /\/login/, /\/register/]}))
+app.use(jwt({secret: CONFIG.SECRET}).unless({ path: [/^\/public\/\S*/, /\/login/, /\/register/]}))
 app.use(helmet())
 app.use(koaCors())
 app.use(route())
 
-mongoose.connect(Mongodb, { useNewUrlParser: true,  useUnifiedTopology: true }, (err) => {
+mongoose.connect(CONFIG.MongoDB, { useNewUrlParser: true,  useUnifiedTopology: true }, (err) => {
   if (err) {
     console.error('数据库连接失败')
   } else {
@@ -30,5 +30,5 @@ mongoose.connect(Mongodb, { useNewUrlParser: true,  useUnifiedTopology: true }, 
   }
 })
 
-app.listen(Port)
-console.log(`Server running on port ${Port}`)
+app.listen(CONFIG.PORT)
+console.log(`Server running on port ${CONFIG.PORT}`)
