@@ -15,8 +15,8 @@ class PublicController {
       width: 70,
       height: 19,
     })
-    // 设置验证码60秒过期
-    setValue(body.sid, captcha.text, 60)
+    // 设置验证码5分钟过期
+    setValue(body.sid, captcha.text, 60 * 5)
     ctx.body = {
       code: 200,
       data: captcha.data,
