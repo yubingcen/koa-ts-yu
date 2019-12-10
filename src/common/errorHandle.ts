@@ -1,4 +1,5 @@
 import { Context, Next } from 'koa'
+import { resError } from '../utils/response'
 
 const handle = (ctx: Context, next: Next) => {
   return next().catch((err) => {
@@ -9,6 +10,12 @@ const handle = (ctx: Context, next: Next) => {
         msg: 'Protected resource, use Authorization header to get access\n'
       }
     } else {
+      ctx.status = err.status || 500
+      ctx.body = Object.assign({
+        code: 500,
+        msg: err.message,
+      }, { stack: err.stack })
+      resError(err.stack, err.message)
       throw err
     }
   })
