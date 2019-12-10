@@ -1,5 +1,5 @@
 const Port = process.env.PORT || 10010
-const Mongodb = 'mongodb://localhost:27017/pigger2'
+const Mongodb = 'mongodb://localhost:27017/pigger'
 const Redis = {
   host: '192.168.0.105',
   port: 15001,
