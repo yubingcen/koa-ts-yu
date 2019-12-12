@@ -164,6 +164,13 @@
   version "12.12.9"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.9.tgz?cache=0&sync_timestamp=1574111219067&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-12.12.9.tgz#0b5ae05516b757cbff2e82c04500190aef986c7b"
 
+"@types/nodemailer@^6.2.2":
+  version "6.2.2"
+  resolved "https://registry.npm.taobao.org/@types/nodemailer/download/@types/nodemailer-6.2.2.tgz#08df85c22546e9f3f3c86e5635571c5229ab43a3"
+  integrity sha1-CN+FwiVG6fPzyG5WNVccUimrQ6M=
+  dependencies:
+    "@types/node" "*"
+
 "@types/range-parser@*":
   version "1.2.3"
   resolved "https://registry.npm.taobao.org/@types/range-parser/download/@types/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
@@ -1644,6 +1651,11 @@ node-pre-gyp@^0.12.0:
     rimraf "^2.6.1"
     semver "^5.3.0"
     tar "^4"
+
+nodemailer@^6.4.1:
+  version "6.4.1"
+  resolved "https://registry.npm.taobao.org/nodemailer/download/nodemailer-6.4.1.tgz#f70b40355b7b08f1f80344b353970a4f8f664370"
+  integrity sha1-9wtANVt7CPH4A0SzU5cKT49mQ3A=
 
 nodemon@^1.19.4:
   version "1.19.4"

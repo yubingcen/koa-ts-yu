@@ -5,6 +5,17 @@ const REDIS = {
   port: 15001,
   password: '123456',
 }
+
+// nodemailer如果用非腾讯邮箱给腾讯系邮箱发不了邮件，如果可以还是用线上邮件服务，线下的容易被封
+const Email = {
+  host: 'smtp.163.com',
+  port: 465,
+  secure: true, // true for 465, false for other ports
+  auth: {
+    user: 'xxxx@163.com', // generated ethereal user
+    pass: 'xxxx', // generated ethereal password
+  },
+}
 const SaltTimes = 3 // 加盐的次数（用户密码加密）
 const SECRET = 'bingo'
 
