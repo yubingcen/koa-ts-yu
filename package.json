@@ -33,7 +33,7 @@
     "@types/nodemailer": "^6.2.2",
     "@types/redis": "^2.8.14",
     "@types/uuid": "^3.4.6",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "bluebird": "^3.7.1",
     "dayjs": "^1.8.17",
     "gm": "^1.23.1",
